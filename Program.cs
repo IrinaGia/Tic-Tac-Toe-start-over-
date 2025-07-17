@@ -30,9 +30,24 @@ class TicTacToe
 
             Console.Write($"\nPlayer {currentPlayer}, choose a cell (1-9): ");
             string input = Console.ReadLine();
+            int choice = 0;
 
+            if (!int.TryParse(input, out choice) || choice < 1 || choice > 9) // For myself: this condition should validate the user input. TryParse helps to convert int into string.
+            {
+                Console.WriteLine("Invalid input. Press any key to try again.");
+                Console.ReadKey(); // reads what button user presses
+                continue;
+            }
 
-            if (moves == 9)
+            /* next row and col are kinda converting user choise into grid's cell
+            that is set as 2d array. So if user chooses 9, then: 
+            row= (9 - 1) / 3 = 2, col = (9 - 1) % 3 = 2. Cell is grid[2, 2] 
+            I found this solution from the internet. And i liked it.*/
+
+            int row = (choice - 1) / 3;
+            int col = (choice - 1) % 3;
+
+            if (moves == 9) // when there is no any win
             {
                 Console.Clear();
                 PrintGrid(grid);
