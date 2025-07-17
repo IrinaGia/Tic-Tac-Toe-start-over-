@@ -50,13 +50,13 @@ class TicTacToe
             grid[row, col] = currentPlayer; // we assign this cell choice to a user
             moves++;
 
-            if (moves == 9) // when there is no any win
+            /*if (moves == 9) // when there is no any win
             {
                 Console.Clear();
                 PrintGrid(grid);
-                Console.WriteLine("\nIt's a draw!");
+                Console.WriteLine("\nIt's a draw!"); 
                 break;
-            }
+            }*/
 
             // switches from one player to another
             if (currentPlayer == "X")
