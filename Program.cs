@@ -47,6 +47,9 @@ class TicTacToe
             int row = (choice - 1) / 3;
             int col = (choice - 1) % 3;
 
+            grid[row, col] = currentPlayer; // we assign this cell choice to a user
+            moves++;
+
             if (moves == 9) // when there is no any win
             {
                 Console.Clear();
@@ -55,7 +58,15 @@ class TicTacToe
                 break;
             }
 
-            currentPlayer = currentPlayer == "X" ? "O" : "X";
+            // switches from one player to another
+            if (currentPlayer == "X")
+            {
+                currentPlayer = "O";
+            }
+            else
+            {
+                currentPlayer = "X";
+            }
         }
     }
 
